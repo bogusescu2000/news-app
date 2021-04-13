@@ -1,0 +1,189 @@
+body {
+	font-family: 'Helvetica', Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.title {
+  letter-spacing: 2px;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 0.8%;
+  font-style: italic;
+  text-align: center;
+  color: #A03065;
+  font-weight: 700;
+  margin-bottom: 1.5%;
+}
+
+
+.cards p {
+    margin-bottom: 1.5em;
+    
+}
+.cards h2 {
+    font-size: 1.5em;
+    
+}
+
+img {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: 200px;
+    margin-top: 1em;
+}
+
+.inline{
+    display: inline;
+    
+}
+
+
+.pagination{
+    margin-bottom: 100px;
+    animation: cssAnimation 0s 1.5s forwards;
+    visibility: hidden;
+}
+@keyframes cssAnimation {
+    to   { visibility: visible; }
+  }
+
+/* Flexbox */
+@media screen and (min-width: 50em) {
+    
+    .outer-wrap {  
+        color: #A03065;
+    }
+    
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        height: 400px;
+    }
+    
+    .main-area {
+        width: 90%;
+        transition: 0.3s;
+        flex: 3;
+        margin-left: 2em;
+        
+    }
+  
+}
+
+/* Card Based Layout - Base styles */
+
+.card {
+	background: white;
+    min-width: 350px;
+}
+
+.card a {
+	color: black;
+	text-decoration: none;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: .3s ease-in-out;
+}
+
+.card-content {
+	//padding-right: 19em;
+    width: 100%;
+    min-width: 5em;
+    color: #2d3047;
+    text-align: justify;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    }
+
+.card-content h2 {
+	margin-top: 0;
+	font-weight: 600;
+}
+
+.card-content p {
+	font-size: 95%;
+    color: #A03065;
+    font-weight: 600;
+}
+
+/* Flexbox stuff */
+
+@media screen and (min-width: 40em) {
+    .cards {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        margin-top: -1em;
+    }
+
+ 
+
+    .card {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex: 0 1 calc(50% - .5em);
+            -ms-flex: 0 1 calc(50% - .5em);
+                flex: 0 1 calc(50% - .5em);
+        margin-bottom: 1em;
+    }
+    
+ 
+}
+
+@media screen and (max-width: 39.93em) {
+  
+  .main-area {
+      padding: 0em;
+    }
+  .card {
+      margin-bottom: 0em;
+    }	
+    .container{
+        width: 100%;
+        margin: auto;
+    }
+
+    img {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .card-content {
+        //padding-right: 19em;
+        width: 90%;
+        margin: auto;
+    }
+
+}
+
+@media screen and (min-width: 60em) {
+    .cards {
+        margin-top: inherit;
+    }
+
+    .card {
+        -webkit-flex: 0 1 calc(33% - 1em);
+            -ms-flex: 0 1 calc(33% - 1em);
+                flex: 0 1 calc(33% - 1em);
+        margin-bottom: 2em;
+    }
+}
+
+
+

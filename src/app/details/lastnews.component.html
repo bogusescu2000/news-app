@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="heading">
+            <p class="paragraph" *ngIf="post" style="color: #7687A6; ">{{ post.date | date:'h:mm/M.d.yy':'+0200'}}</p>
+            <p class="paragraph" *ngIf="post"style="padding-left: 1em;" [innerHTML] = "post._embedded['wp:term'][0][0].name"></p>
+            <div class ="post-title" *ngIf="post" [innerHTML] = 'post.title.rendered | keepHtml'></div> 
+        </div>
+            <div class="card">
+                <div class="card-header">
+                    
+                    <img *ngIf="sanitizePost" class="e2e-iframe-trusted-src"src="{{post._embedded['wp:featuredmedia'][0].source_url}}">
+                </div>
+                <div class="card-body">
+    
+                </div>
+                <div class="content" >
+            <!--<p *ngIf="post" [innerHTML]= 'post.excerpt.rendered' > </p>  -->
+                <div  *ngIf="post" class="img-content" [innerHTML] = 'post.content.rendered | keepHtml'></div>
+
+             <!--    <iframe width="300" height="200" *ngIf="post" src='{{post.video_embed | safeUrl}}'> </iframe>  -->
+            </div>
+            </div>
+    </div> 
+
+</body>
+</html>
+

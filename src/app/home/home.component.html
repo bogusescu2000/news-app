@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV8 Media</title>
+</head>
+<body>
+    <div  class="container" >
+    <div class="outer-wrap">
+        <div class=title>Ultimele știri</div>
+        <div class="content">
+          <main class="main-area" *ngFor="let data of posts | paginate: { 
+            itemsPerPage: 12, 
+            currentPage: page,  
+            totalItems: totalLength
+            }">
+            <section  class="cards">
+              <article class="card">
+                      <a href="#">
+                          <picture class="thumbnail">
+                            <a [routerLink]="data.slug"><img class="image" src="{{data._embedded['wp:featuredmedia'][0].source_url}}"></a>
+                          </picture>
+                          <div class="card-content">
+                            <p class="inline" style="font-size:16px;">{{ data.date | date:'h:mm/M.d.yy':'+0200'}}</p>
+                            <p class="inline" style="margin-left: 5%; font-size: 16px;">{{data._embedded['wp:term'][0][0].name}}</p>
+                            <h2 [innerHTML] = "data.title.rendered"></h2>
+                          </div>
+                      </a>
+                  </article>
+              </section>
+          </main>
+          <pagination-controls (pageChange) = "onPageChange($event)" class="pagination" (pageChange)="page = $event" 
+          autoHide="true"
+          previousLabel=""
+          nextLabel="">
+        
+        </pagination-controls>        
+        </div>
+      </div>
+    </div>
+    
+
+
+
+    
+<!--     <div class="heading">
+        <h1><i>Ultimele știri</i></h1> 
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="50" class="container">
+    <div class="row">
+        <div class="card" *cdkVirtualFor="let data of posts">
+            <div class="content">
+                <div class="card-header">
+                    <a routerLink="{{data.slug}}"><img class="image" src="{{data._embedded['wp:featuredmedia'][0].source_url}}"></a>
+                </div>
+                <div class="card-body">
+                    <p style="color: #7687A6;">{{ data.date | date:'h:mm/M.d.yy':'+0200'}}</p>
+                    <p style="padding-left: 1em;">{{data._embedded['wp:term'][0][0].name}}</p>
+                    <div  class="name">{{data.title.rendered }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</cdk-virtual-scroll-viewport> -->
+</body>
+</html>
